@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- HTML -->
+<section class="reservation-section">
+  <div class="reservation-container">
+    <div class="reservation-image">
+      <img src="/static/images/dining.jpg" alt="dining pic">
+    </div>
+    <div class="reservation-form">
+      <h2>Book A Table</h2>
+      <form>
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-row">
+          <input type="datetime-local" name="datetime" required>
+          <select name="people" required>
+            <option value="" disabled selected>Number of People</option>
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5+">5+ People</option>
+          </select>
+        </div>
+        <textarea name="requests" rows="4" placeholder="Special Requests"></textarea>
+        <button type="submit">BOOK NOW</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

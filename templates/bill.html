@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bill-container">
+    <h1 class="bill-title">Your Bill</h1>
+    <table class="bill-table">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price * item.quantity }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="bill-total">
+        <p>Subtotal: ₹{{ subtotal }}</p>
+        <p>GST (18%): ₹{{ gst|round(2) }}</p>
+        <p>Delivery Charge: ₹{{ delivery_charge }}</p>
+        <strong>Grand Total: ₹{{ grand_total|round(2) }}</strong>
+    </div>
+</div>
+{% endblock %}

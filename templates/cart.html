@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="cart-container" style="margin-top: 120px;">
+    <h1 class="cart-heading">Your Cart</h1>
+    {% if cart %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price * item.quantity }}</td>
+                <td>
+                    <form method="POST" action="{{ url_for('remove_from_cart') }}">
+                        <input type="hidden" name="name" value="{{ item.name }}">
+                        <button type="submit">✖</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="cart-total">
+        <strong>Total: ₹{{ total }}</strong>
+    </div>
+    <div class="cart-buttons">
+        <form method="POST" action="{{ url_for('place_order') }}">
+            <button type="submit">Order Now</button>
+        </form>
+        <form method="POST" action="{{ url_for('generate_bill') }}">
+            <button type="submit">Bill</button>
+        </form>
+    </div>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

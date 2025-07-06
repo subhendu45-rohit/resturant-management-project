@@ -1,0 +1,96 @@
+/* Background image full screen */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('/static/images/login-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark blurred glass card */
+.auth-page {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.auth-page h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Input styles */
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.auth-form input[type="text"]:focus,
+.auth-form input[type="email"]:focus,
+.auth-form input[type="password"]:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00ffe1;
+}
+
+/* Submit button */
+.auth-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #00ffe1;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.auth-form input[type="submit"]:hover {
+  background: #00bfa6;
+}
+
+/* Links */
+.auth-form a {
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.auth-form a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 25px;
+  }
+}

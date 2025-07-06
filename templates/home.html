@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="home-page">
+  <!-- Video Section -->
+<section id="hero-video">
+  <video autoplay muted loop style="width:100%; height:auto;">
+    <source src="/static/videos/home.mp4" type="video/mp4">
+
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+
+  <section class="slider-container">
+
+      <!-- Radio buttons for slider control -->
+      <input type="radio" name="slider" id="s1" checked>
+      <input type="radio" name="slider" id="s2">
+      <input type="radio" name="slider" id="s3">
+
+      <!-- Slides -->
+      <div class="slides">
+          <div class="slide">
+              <img src="{{ url_for('static', filename='images/pic1.jpg') }}" alt="Slide 1">
+          </div>
+          <div class="slide">
+              <img src="{{ url_for('static', filename='images/pic2.jpg') }}" alt="Slide 2">
+          </div>
+          <div class="slide">
+              <img src="{{ url_for('static', filename='images/pic3.jpg') }}" alt="Slide 3">
+          </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+          <label for="s1"></label>
+          <label for="s2"></label>
+          <label for="s3"></label>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+          <h1 class="hero-title">The Golden Leaf </h1>
+          <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam.</p>
+          <a href="{{ url_for('order_now') }}" class="btn-yellow">Order Now</a>
+      </div>
+
+  </section>
+
+<!-- Special Offers Section -->
+<section class="special-offers text-center py-5">
+  <div class="container">
+    <h2 class="glowing-offers mb-5">🔥 Special Offers</h2>
+
+    <div class="offer-slider">
+      <!-- Card 1 -->
+      <div class="offer-card">
+        <img src="{{ url_for('static', filename='images/slide1.jpg') }}" alt="Offer 1">
+        <div class="card-body">
+          <h4 class="card-title">50% Off Burger Combo</h4>
+          <p class="card-text">Get your favorite burger, fries, and drink at half the price.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="offer-card">
+        <img src="{{ url_for('static', filename='images/slide2.jpg') }}" alt="Offer 2">
+        <div class="card-body">
+          <h4 class="card-title">Buy 1 Get 1 Ramen</h4>
+          <p class="card-text">Double the flavor with our authentic Spices.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="offer-card">
+        <img src="{{ url_for('static', filename='images/slide3.jpg') }}" alt="Offer 3">
+        <div class="card-body">
+          <h4 class="card-title">Free Drink with Fried Rice</h4>
+          <p class="card-text">Enjoy a free soft drink on every plate.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="{{ url_for('static', filename='images/slide4.jpg') }}" alt="Offer 4">
+        <div class="card-body">
+          <h4 class="card-title">Buy 1 Get 1 Pizza</h4>
+          <p class="card-text">Double the size with more discount.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

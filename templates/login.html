@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="auth-page">
+    <h2>Login</h2>
+    <form method="POST" action="{{ url_for('login') }}" class="auth-form">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Login">
+      <a href="{{ url_for('signup') }}">Don't have an account? Sign up</a>
+      <a href="{{ url_for('home') }}">← Back to Home</a>
+    </form>
+  </div>
+</body>
+</html>

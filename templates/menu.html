@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="menu-container">
+    <h1 class="menu-heading">Our Menu Categories</h1>
+    <div class="categories">
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im1.jpg') }}" alt="Breakfast">
+            <a href="{{ url_for('category_page', category='breakfast') }}" class="category-link">Breakfast</a>
+        </div>
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im2.jpg') }}" alt="Main Course">
+            <a href="{{ url_for('category_page', category='maincourse') }}" class="category-link">Main Course</a>
+        </div>
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im3.jpg') }}" alt="Snacks">
+            <a href="{{ url_for('category_page', category='snacks') }}" class="category-link">Snacks</a>
+        </div>
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im5.jpg') }}" alt="Chapatis">
+            <a href="{{ url_for('category_page', category='chapatis') }}" class="category-link">Chapatis</a>
+        </div>
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im4.jpg') }}" alt="Dessert">
+            <a href="{{ url_for('category_page', category='dessert') }}" class="category-link">Dessert</a>
+        </div>
+        <div class="menu-item">
+            <img src="{{ url_for('static', filename='images/im6.jpg') }}" alt="Drinks">
+            <a href="{{ url_for('category_page', category='drinks') }}" class="category-link">Drinks</a>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/bg1.jpg') }}" alt="First Image">
+        <img src="{{ url_for('static', filename='images/bg2.jpg') }}" alt="Second Image">
+        <img src="{{ url_for('static', filename='images/bg3.jpg') }}" alt="Third Image">
+    </div>
+</div>
+{% endblock %}

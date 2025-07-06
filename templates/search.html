@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-container">
+    <h2>Search</h2>
+    <form action="{{ url_for('search') }}" method="get">
+        <input type="text" name="query" placeholder="Search for food..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if query %}
+        {% if available %}
+            <p style="margin-top: 30px; color: #0f0; font-size: 20px;">Yes, it is available in menu. Check it!</p>
+            <a href="/menu">
+                <button style="margin-top: 20px; background-color: #ffb700; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Go to Menu</button>
+            </a>
+        {% else %}
+            <p style="margin-top: 30px; color: #f00; font-size: 20px;">It will be available soon.</p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

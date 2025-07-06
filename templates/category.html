@@ -1,0 +1,35 @@
+<!-- category.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="category-container">
+    <h1 class="category-heading">{{ category }}</h1>
+    <div class="category-items-grid">
+        {% for item in items %}
+        <div class="category-item-card">
+            <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}">
+            <div class="item-content">
+                <h3 class="item-name">{{ item.name }}</h3>
+                <p class="item-price">₹{{ item.price }}</p>
+                <form method="POST" action="{{ url_for('add_to_cart') }}" class="add-to-cart-form">
+                    <input type="hidden" name="name" value="{{ item.name }}">
+                    <input type="hidden" name="price" value="{{ item.price }}">
+                    <input type="hidden" name="image" value="{{ item.image }}">
+                    
+                    <div class="quantity-container">
+                        <label for="quantity-{{ loop.index }}">Qty:</label>
+                        <input type="number" id="quantity-{{ loop.index }}" name="quantity" value="1" min="1" class="quantity-input" required>
+                    </div>
+
+                    <button type="submit" class="add-cart-btn">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="back-button">
+        <a href="{{ url_for('menu') }}">← Back to Menu</a>
+    </div>
+</div>
+{% endblock %}

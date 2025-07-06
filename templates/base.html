@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O' Kareem Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="O' Kareem Logo" class="logo-img">
+            </a>
+        </div>
+
+        <div class="nav-left">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}" class="{% if request.path == '/' %}active{% endif %}">HOME</a></li>
+                <li><a href="{{ url_for('menu') }}" class="{% if request.path == '/menu' %}active{% endif %}">MENU</a></li>
+                <li><a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">ABOUT</a></li>
+                <li><a href="{{ url_for('book_table') }}" class="{% if request.path == '/book-table' %}active{% endif %}">BOOK TABLE</a></li>
+                <li><a href="{{ url_for('contact') }}" class="{% if request.path == '/contact' %}active{% endif %}">CONTACT US</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <div class="icons">
+                <a href="{{ url_for('login') }}" class="{% if request.path == '/login' %}active{% endif %}"><i class="fa fa-user"></i></a>
+                <a href="{{ url_for('cart') }}" class="{% if request.path == '/cart' %}active{% endif %}"><i class="fa fa-shopping-cart"></i></a>
+                <a href="{{ url_for('search') }}" class="{% if request.path == '/search' %}active{% endif %}"><i class="fa fa-search"></i></a>
+                <a href="{{ url_for('order_online') }}" class="nav-order-btn {% if request.path == '/order-online' %}active{% endif %}">Order now</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+</html>
